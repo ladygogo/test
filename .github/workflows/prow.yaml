@@ -10,6 +10,7 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
+      - run: hub clone https://github.com/ladygogo/test.git .
       - uses: carolynvs/prow-github-actions@main
         with:
           prow-commands: '/approve 
