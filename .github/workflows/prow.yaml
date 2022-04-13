@@ -10,22 +10,8 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - uses: jpmcb/prow-github-actions@v1.1.3
+      - uses: carolynvs/prow-github-actions@main
         with:
-          prow-commands: '/assign 
-            /unassign 
-            /approve 
-            /retitle 
-            /area 
-            /kind 
-            /priority 
-            /remove 
-            /lgtm 
-            /close 
-            /reopen 
-            /lock 
-            /milestone 
-            /hold 
-            /cc 
-            /uncc'
+          prow-commands: '/approve 
+            /lgtm'
           github-token: "${{ secrets.GITHUB_TOKEN }}"
