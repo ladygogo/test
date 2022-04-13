@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: hub clone https://github.com/ladygogo/test.git .
       - run: ls
-      - uses: carolynvs/prow-github-actions@main
+      - uses: carolynvs/prow-github-actions@owners-file
         with:
           prow-commands: '/approve 
             /lgtm'
