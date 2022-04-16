@@ -10,7 +10,8 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - run: hub clone ${{ github.repositoryUrl}} .
+      # Clone the repository so that the OWNERS file can be used by prow
+      - run: hub clone ${{ github.server_url }}/${{ github.repository }} .
       - run: ls
       - uses: carolynvs/prow-github-actions@owners-file2
         with:
