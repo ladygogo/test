@@ -14,7 +14,7 @@ jobs:
       - run: hub clone ${{ github.server_url }}/${{ github.repository }} .
       - uses: carolynvs/prow-github-actions@owners-file2
         with:
-          prow-commands: |-
-            /approve 
+          prow-commands: |
+            /approve
             /lgtm
           github-token: "${{ secrets.GITHUB_TOKEN }}"
