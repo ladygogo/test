@@ -10,7 +10,7 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - run: hub clone https://github.com/ladygogo/test.git .
+      - run: hub clone ${{ github.repositoryUrl}} .
       - run: ls
       - uses: carolynvs/prow-github-actions@owners-file2
         with:
