@@ -12,9 +12,9 @@ jobs:
     steps:
       # Clone the repository so that the OWNERS file can be used by prow
       - run: hub clone ${{ github.server_url }}/${{ github.repository }} .
-      - run: ls
       - uses: carolynvs/prow-github-actions@owners-file2
         with:
-          prow-commands: '/approve 
-            /lgtm'
+          prow-commands: |
+            /approve 
+            /lgtm
           github-token: "${{ secrets.GITHUB_TOKEN }}"
