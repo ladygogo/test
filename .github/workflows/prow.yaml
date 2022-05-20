@@ -1,9 +1,9 @@
 name: "Prow github actions"
 on:
   issue_comment:
-    types: [created]
+    types: [created,edited]
   pull_request_review:
-    types: [created]
+    types: [submitted,edited]
 permissions:
   issues: write
   pull-requests: write
