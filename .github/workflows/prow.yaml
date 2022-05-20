@@ -11,6 +11,7 @@ permissions:
 jobs:
   execute:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - uses: carolynvs/prow-github-actions@trigger-from-review
         with:
