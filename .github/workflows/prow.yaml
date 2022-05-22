@@ -1,9 +1,10 @@
-name: "Prow github actions"
+name: "Prow"
 on:
   issue_comment:
     types: [created,edited]
-  pull_request_review:
-    types: [submitted,edited]
+  workflow_run:
+    workflows: [review]
+    types: [completed]
 permissions:
   issues: write
   pull-requests: write
@@ -11,7 +12,6 @@ permissions:
 jobs:
   execute:
     runs-on: ubuntu-latest
-    permissions: write-all
     steps:
       - uses: carolynvs/prow-github-actions@trigger-from-review
         with:
