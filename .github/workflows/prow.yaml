@@ -1,7 +1,10 @@
-name: "Prow github actions"
+name: "Prow"
 on:
   issue_comment:
-    types: [created]
+    types: [created,edited]
+  workflow_run:
+    workflows: [Review]
+    types: [completed]
 permissions:
   issues: write
   pull-requests: write
@@ -10,10 +13,9 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - run: hub clone https://github.com/ladygogo/test.git .
-      - run: ls
-      - uses: carolynvs/prow-github-actions@owners-file
+      - uses: carolynvs/prow-github-actions@trigger-from-review
         with:
-          prow-commands: '/approve 
-            /lgtm'
+          prow-commands: |
+            /approve
+            /lgtm
           github-token: "${{ secrets.GITHUB_TOKEN }}"

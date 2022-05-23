@@ -1,0 +1,17 @@
+# This is an empty workflow that is used soley to trigger the
+# prow workflow. This workflow here can't handle prow commands
+# because the pull_request_review token only has READ access.
+# We trigger the prow workflow after this completes so that the
+# prow workflow has WRITE access.
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
+name: Review
+on:
+  pull_request_review:
+    types: [submitted,edited]
+
+jobs:
+  trigger:    
+    name: Signal Pull Request Review
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "A pull request review occurred"
