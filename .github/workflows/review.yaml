@@ -4,6 +4,7 @@
 # We trigger the prow workflow after this completes so that the
 # prow workflow has WRITE access.
 # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
+name: Review
 on:
   pull_request_review:
     types: [submitted,edited]
