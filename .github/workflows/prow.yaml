@@ -1,5 +1,5 @@
 name: "Prow"
-on: [issue_comment, pull_request]
+on: [issue_comment]
 permissions:
   issues: write
   pull-requests: write
