@@ -1,10 +1,5 @@
 name: "Prow"
-on:
-  issue_comment:
-    types: [created,edited]
-  workflow_run:
-    workflows: [Review]
-    types: [completed]
+on: [issue_comment, pull_request]
 permissions:
   issues: write
   pull-requests: write
@@ -13,7 +8,7 @@ jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - uses: carolynvs/prow-github-actions@trigger-from-review
+      - uses: jpmcb/prow-github-actions@main
         with:
           prow-commands: |
             /approve
